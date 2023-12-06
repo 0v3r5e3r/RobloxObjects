@@ -94,6 +94,7 @@ game:GetService("RunService").Heartbeat:Connect(function()
 		if(currentTime.minute < timeToClose.minute + 1) and (currentTime.minute > timeToClose.minute - 1) then
 			if(currentTime.second < timeToClose.second + 5) and (currentTime.second > timeToClose.second - 5) then
 				print("TIME TO CLOSE THE SERVER")
+				game.Players.PlayerAdded:Connect(function(plr) plr:Kick("Server Shutdown") end)
 				for _,v in pairs(game.Players:GetPlayers()) do
 					v:Kick("Server Shutdown For Updates")
 				end
